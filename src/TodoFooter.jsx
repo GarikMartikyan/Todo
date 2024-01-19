@@ -1,9 +1,11 @@
-export default function TodoFooter() {
-
+export default function TodoFooter({todos, clear}) {
+    let completed = todos.filter(item => item.isCompleted)
     return(
         <div>
-            <span>2/4 completed</span>
-            <button>Clear Completed</button>
+            <span>{completed.length}/{todos.length} completed</span>
+            <button onClick={() => {
+                clear()
+            }}>Clear Completed</button>
         </div>
     )
 }
